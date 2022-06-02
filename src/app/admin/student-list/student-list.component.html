@@ -1,0 +1,51 @@
+
+    <div class="card">
+        <div class="row">
+            <div class="col-8">
+                <h2 class="p-4">Danh sách sinh viên</h2>
+            </div>
+            <div class="col-4">
+                <div class="form-inline ml-3 mt-4 ">
+                    <div class="input-group input-group-sm bg-light">
+                      <input class="form-control form-control-navbar"  pInputText type="text" (input)="dt.filterGlobal(getEventValue($event), 'contains')"  placeholder="Search" >
+                      <div class="input-group-append">
+                        <button class="btn btn-navbar rounded-right-1 bg-secondary  border-1" type="submit">
+                          <i class="fas fa-search"></i>
+                        </button>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p-table #dt [value]="list_user" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" responsiveLayout="scroll" 
+        [globalFilterFields]="['username','fullname','email']"
+             >
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>#</th>
+                    <th>username</th>
+                    <th>fullname</th>
+                    <th>email</th>
+                    <!-- <th>gander</th> -->
+                    <!-- <th>Score</th> -->
+                    <th>schoolfree</th>
+                    <th><a routerLink="/admin/sinh-vien/add" class="btn btn-sm btn-primary">Thêm mới</a></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-user let-rowIndex="rowIndex">
+                <tr>
+                    <td>{{rowIndex+1}}</td>
+                    <td>{{user.username}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <!-- <td>{{user.}}</td> -->
+                    <!-- <td>{{user.gander}}</td> -->
+                    <td>{{user.schoolfee}}</td>
+                    <td><a routerLink="/admin/sinh-vien/edit/{{user.id}}" class="btn btn-sm btn-primary">Sửa</a>
+                        <button (click)="remove(user.id)" class="btn btn-sm btn-danger">Xóa</button>
+                    </td>
+                </tr>
+            </ng-template>
+           
+        </p-table>
+    </div>

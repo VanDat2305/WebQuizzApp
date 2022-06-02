@@ -1,0 +1,39 @@
+.field_question{
+    border-radius: 15px;
+}
+.question_title{
+    color: rgb(0, 2, 90);
+    font-weight: bolder;
+}
+.hidebox{
+    /* display: none; */
+    /* width: max-content; */
+}
+
+
+
+
+
+.radio-button input[type="radio"] {
+    display: none;
+    /* padding: 10px; */
+  }      
+  .radio-button label {
+    /* display: inline-block; */
+    padding: 19px 4px;
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 10px;
+    border: 0px solid #000;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px -4px rgb(76, 70, 70);
+    cursor: pointer;
+  }      
+  .radio-button input[type="radio"]:checked+ label {
+    background-color: #06d667;
+    color: #fff;
+    /* font-weight: 600; */
+    box-shadow: 3px 7px 13px -1px rgb(97, 88, 88);
+
+  }

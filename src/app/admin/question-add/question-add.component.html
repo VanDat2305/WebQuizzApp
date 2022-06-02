@@ -1,0 +1,55 @@
+<div class="container-fiuld bg-light p-4">
+  <div class="row text-center">
+    <div class="col-12">
+      <h4 class="p-4">Thêm mới câu hỏi</h4>
+    </div>
+  </div>
+
+  
+  <div class="row">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="col-5 m-auto">
+      <div class="row">
+        <div class="col-12 m-auto">
+          <div class="form-group">
+            <label for="">Câu hỏi</label>
+            <textarea formControlName="question" class="form-control"  rows="4"></textarea>
+            <div *ngIf="
+                  form.controls['question'].errors &&
+                  (form.controls['question'].touched ||
+                    form.controls['question'].dirty)
+                ">
+                <span class="text-danger" *ngIf="
+                    form.controls['question'].hasError('required')
+                  ">Hãy nhập câu hỏi</span>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-10">
+          <label for="">Đáp án</label>
+        </div>
+        <div class="  col-1">
+          <button type="button" (click)="addAnswers()" class="btn btn-sm btn-primary "><i class="fas fa-plus"></i></button>
+        </div>
+      </div>
+      <div formArrayName="answers">
+        <div *ngFor="let an of answers.controls; index as i">
+          <div class="input-group mt-2">
+            <div class="input-group-text pl-5 pr-3">
+              <input class="form-check-input mt-0" type="radio"  name="is_answer" (change)="answer_true(i)"  value="i">
+              
+            </div>
+            <input type="text" class="form-control" [formControlName]="i">
+           
+            <span class="input-group-text" *ngIf="answers.controls.length>1" (click)="remove_an(i)"><i class="fas fa-trash"></i></span>
+          </div>
+          
+        </div>
+      </div>
+      <div class="row mt-4">
+        <button class="btn btn-sm btn-primary" [disabled]="form.invalid">Thêm</button>
+      </div>
+    </form>
+  </div>
+</div>

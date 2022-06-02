@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-light sticky-top border-bottom-1" style="background: #d3e0e0;" data-navbar-on-scroll="data-navbar-on-scroll">
+    <div class="container" ><a class="navbar-brand" routerLink="index.html"><img src="../../../assets/img/logo5.png" width="80" alt="logo" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"> </span></button>
+      <div class="collapse navbar-collapse  mt-4 mt-lg-0" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" aria-current="page" routerLink="/">Trang chủ</a></li>
+          <li class="nav-item"><a class="nav-link" aria-current="page" routerLink="/mon-hoc">Môn học</a></li>
+          <li class="nav-item dropdown" *ngIf="!check_isset_acc">
+            <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Xin chào {{name_user}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="#">Thông tin</a></li>
+              <li><button class="dropdown-item" (click)="logout()" >Đăng xuất</button></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="d-flex ms-lg-4" *ngIf="check_isset_acc"><a class="btn btn-secondary-outline" routerLink="/login">Đăng nhập</a>
+          <!-- <a class="btn btn-warning text-white ms-3" href="#!">Đăng kí</a> -->
+        </div>
+        <div></div>
+      </div>
+    </div>
+  </nav>
+  <main class="">
+<router-outlet></router-outlet>
+  </main>
+<div class="container-fluid mt-2" style="background: #d3e0e0;">
+
+  <section class="pb-2 pb-lg-5 pt-4">
+
+    <div class="container">
+      <div class="row border-top border-top-secondary pt-7 ">
+        <div class="col-lg-4 col-md-6 mb-4 mb-md-6 mb-lg-0 mb-sm-2 order-1 order-md-1 order-lg-1 m-2 "><img class="mb-4" src="../../../assets/img/logo5.png" width="184" alt="" /></div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 order-3 order-md-3 order-lg-2 pt-4">
+          <p class="fs-2 mb-lg-4">Truy cập </p>
+          <ul class="list-unstyled mb-0">
+              <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" routerLink="/">Trang chủ</a></li>
+            <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" routerLink="/mon-hoc">Môn học</a></li>
+            <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" routerLink="/tai-khoan">Tài Khoản</a></li>
+            <!-- <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="#!">Contact</a></li>
+            <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="#!">FAQ</a></li> -->
+          </ul>
+        </div>
+        <!-- <div class="col-lg-3 col-md-6 mb-4 mb-lg-0 order-4 order-md-4 order-lg-3">
+          <p class="fs-2 mb-lg-4">Legal stuff</p>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="#!">Disclaimer</a></li>
+            <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="#!">Financing</a></li>
+            <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="#!">Privacy Policy</a></li>
+            <li class="mb-1"><a class="link-900 text-secondary text-decoration-none" href="#!">Terms of Service</a></li>
+          </ul>
+        </div> -->
+        <div class="col-lg-4 col-md-6 col-6 mb-4 mb-lg-0 order-2 order-md-2 order-lg-4 pt-4">
+          <p class="fs-2 mb-lg-4">
+            Đăng kí ngay</p>
+          <form class="mb-3">
+            <input class="form-control" type="email" placeholder="email" aria-label="phone" />
+          </form>
+          <button class="btn btn-warning fw-medium py-1 text-white">Đăng ký </button>
+        </div>
+      </div>
+    </div><!-- end of .container-->
+
+  </section>
+</div>

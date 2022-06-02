@@ -1,0 +1,75 @@
+<div class="row">
+  <section class="vh-100" style="background-color: #508bfc">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem">
+            <div class="card-body p-5 text-left">
+              <h3 class="mb-5">Sign in</h3>
+              <div class="row">
+                <div class="col-12 text-danger mb-3" *ngIf="mgs!=''">
+                    {{mgs}}
+                </div>
+              </div>
+              <form action="" [formGroup]="loginForm" (submit)="submitForm()">
+                <div class="form-floating mb-4">
+                  <input type="email" class="form-control form-control-lg" formControlName="email" id="floatingInput" />
+                  <label for="floatingInput">Email </label>
+
+                  <!-- <input type="email" formControlName="email" id="floatingInput" class="form-control form-control-lg" /> -->
+                  <div *ngIf="
+                      loginForm.controls['email'].errors &&
+                      (loginForm.controls['email'].touched ||
+                        loginForm.controls['email'].dirty)
+                    ">
+                    <span class="text-danger" *ngIf="loginForm.controls['email'].hasError('required')">Hãy nhập
+                      email</span>
+                    <span class="text-danger" *ngIf="loginForm.controls['email'].hasError('email')">Không đúng định dạng
+                      email</span>
+                  </div>
+                </div>
+
+                <div class="form-floating mb-4">
+                  <input type="password" formControlName="password" id="password" class="form-control" />
+                  <div *ngIf="
+                      loginForm.controls['password'].errors &&
+                      (loginForm.controls['password'].touched ||
+                        loginForm.controls['password'].dirty)
+                    ">
+                    <span class="text-danger" *ngIf="
+                        loginForm.controls['password'].hasError('required')
+                      ">Hãy nhập pasword</span>
+                      <span class="text-danger" *ngIf="
+                        loginForm.controls['password'].hasError('minlength')
+                      ">Password không hợp lệ</span>
+                  </div>
+                  <label for="floatingPassword">Password</label>
+                </div>
+
+                <!-- Checkbox -->
+                <div class="form-check d-flex justify-content-start mb-4">
+                  <input class="form-check-input ml-5" type="checkbox" />
+                  <label class="form-check-label ml-5 pl-5" for="form1Example3">
+                    Remember password
+                  </label>
+                </div>
+
+                <button [disabled]="loginForm.invalid" class="btn btn-primary btn-lg btn-block" type="submit">
+                  Login
+                </button>
+              </form>
+
+              <hr class="my-4" />
+
+              <button (click)="googleLogin()" class="btn btn-lg btn-block btn-primary mb-2"
+                style="background-color: #dd4b39">
+                <i class="fab fa-google me-2"></i> Sign in with google
+              </button>
+              <!-- <button class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;" type="submit"><i class="fab fa-facebook-f me-2"></i>Sign in with facebook</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

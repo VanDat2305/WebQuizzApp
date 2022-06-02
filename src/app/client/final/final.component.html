@@ -1,0 +1,16 @@
+<section class="p-3 " >
+    <div class="container bg-light ">
+        <div class="row">
+            <div class="alert alert-success" role="alert">
+              <h4 class="alert-heading">Kết quả trắc nghiệm môn : {{name_subject}}</h4>
+              <p></p>
+              <hr>
+              <p class="mb-0">Bạn đã đạt : {{score_subject}} điểm</p>
+              <div class="row mt-3">
+                  <div class="col-1"><a routerLink="/quiz/{{codeSubject}}" class="btn btn-primary" style="text-decoration-line:none">Làm lại</a></div>
+                  <div class="col-4"><a routerLink="" class="btn btn-secondary" style="text-decoration-line:none">Về trang chủ</a></div>
+              </div>
+            </div>
+        </div>
+    </div>
+</section>

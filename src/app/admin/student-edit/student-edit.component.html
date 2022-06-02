@@ -1,0 +1,114 @@
+<div class="container-fuild bg-light p-3">
+    <div class="row">
+        <div class="col-6 m-auto">
+            <h4 class="alert-heading p-3 bg-primary">Sửa sinh viên</h4>
+
+        </div>
+    </div>
+    <div class="row">
+        <form class="col-4 m-auto" [formGroup]="userForm">
+            <div>
+            <label for="">Họ tên</label>
+            <input type="text" formControlName="name"  class="form-control">
+            <div *ngIf="
+                  userForm.controls['name'].errors &&
+                  (userForm.controls['name'].touched ||
+                    userForm.controls['name'].dirty)
+                ">
+                <span class="text-danger" *ngIf="
+                    userForm.controls['name'].hasError('required')
+                  ">Hãy nhập họ tên</span>
+                  <span class="text-danger" *ngIf="
+                    userForm.controls['name'].hasError('minlength')
+                  ">Họ tên không hợp lệ</span>
+              </div>
+        </div>
+        <div class="form-group">
+            <label for="">Email</label>
+            <input type="text" formControlName="email" class="form-control" >
+            <div *ngIf="
+                  userForm.controls['email'].errors &&
+                  (userForm.controls['email'].touched ||
+                    userForm.controls['email'].dirty)
+                ">
+                <span class="text-danger" *ngIf="
+                    userForm.controls['email'].hasError('required')
+                  ">Hãy nhập email</span>
+                  <span class="text-danger" *ngIf="
+                    userForm.controls['email'].hasError('email')
+                  ">Email không hợp lệ</span>
+              </div>
+        </div>
+        <div class="form-group">
+            <label for="">Username</label>
+            <input type="text" formControlName="username" class="form-control" >
+            <div *ngIf="
+                  userForm.controls['username'].errors &&
+                  (userForm.controls['username'].touched ||
+                    userForm.controls['username'].dirty)
+                ">
+                <span class="text-danger" *ngIf="
+                    userForm.controls['username'].hasError('required')
+                  ">Hãy nhập username</span>
+                  <span class="text-danger" *ngIf="
+                    userForm.controls['username'].hasError('minlength')
+                  ">username không hợp lệ</span>
+              </div>
+        </div>
+        <div class="form-group">
+            <label for="">password</label>
+            <input type="password" formControlName="password" class="form-control" >
+            <div *ngIf="
+                  userForm.controls['password'].errors &&
+                  (userForm.controls['password'].touched ||
+                    userForm.controls['password'].dirty)
+                ">
+                <span class="text-danger" *ngIf="
+                    userForm.controls['password'].hasError('required')
+                  ">Hãy nhập password</span>
+                  <span class="text-danger" *ngIf="
+                    userForm.controls['password'].hasError('minlength')
+                  ">password lớn hơ 6 kí tự</span>
+                  <span class="text-danger" *ngIf="
+                    userForm.controls['password'].hasError('maxLength')
+                  ">Password bé hơn 44 kí tự</span>
+              </div>
+        </div>
+        <div class="form-group">
+            <label for="">Ảnh</label>
+            <input type="text" formControlName="avatar" class="form-control" >
+            <div *ngIf="
+            userForm.controls['avatar'].errors &&
+            (userForm.controls['avatar'].touched ||
+              userForm.controls['avatar'].dirty)
+          ">
+          <span class="text-danger" *ngIf="
+              userForm.controls['avatar'].hasError('required')
+            ">Hãy nhập avatar</span>
+        </div>
+        </div>
+       
+        <div class="form-group">
+            <label for="">Học phí</label>
+            <input type="number" formControlName="schoolfee" class="form-control" >
+            <div *ngIf="
+            userForm.controls['schoolfee'].errors &&
+            (userForm.controls['schoolfee'].touched ||
+              userForm.controls['schoolfee'].dirty)
+          ">
+          <span class="text-danger" *ngIf="
+              userForm.controls['schoolfee'].hasError('required')
+            ">Hãy nhập học phí</span>
+            <span class="text-danger" *ngIf="
+              userForm.controls['schoolfee'].hasError('minlength')
+            ">Học phí ít nhất 100.000 VND</span>
+            
+        </div>
+        </div>
+        <div class="mt-3 ">
+            <button (click)="submitForm()" [disabled]="userForm.invalid" class="btn btn-primary">Lưu</button>
+        </div>
+        </form>
+    </div> 
+    
+</div>

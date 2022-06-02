@@ -1,0 +1,48 @@
+
+  <section  >
+    <div class="container bg-light ">
+      <div class="row p-4">
+        <div class="col-2"></div>
+        <h3 class="fw-bold col-6  mb-3 pt-5">Môn học: {{name_subject}}</h3>
+        <div class="col-4 mb-3 p-5">
+          <span class="badge p-3 fw-bold  rounded-pill bg-danger" >{{countdown}}</span>
+        </div>
+      </div>
+      <div class="row">
+        
+        <!-- <p-paginator [rows]="1" [totalRecords]="listQuestion.length" (onPageChange)="paginate($event)" ></p-paginator>
+        <fieldset *ngFor="let q of question;" class="card  m-3  col-12 field_question">
+          <div class="card-body">
+            <h5 class="card-title " style="font-size: 25px;"><span class="question_title">Câu hỏi {{question_number+1}} : </span> {{q.Text}}</h5>
+          </div>
+          <ul class="row" style="list-style-type:none">
+            <div class="radio-button row">
+            <li class=" col-5 ml-4 row mt-2 " *ngFor="let a of q.Answers">
+              <input type="radio" (change)="selectAnswer(q.Id, a.Id)"  name="{{q.Id}} " id="dat{{a.Id}}"   class="hidebox"  value="{{a.Id}} " >
+              <label for="dat{{a.Id}}" class=" text-center  lab_box">{{a.Text}}</label>
+            </li>
+            </div>
+          </ul>
+        </fieldset> -->
+        <div class="col-9 m-auto">
+          <fieldset *ngFor="let q of listQuestion,index as i;" class="card  m-3  col-12 field_question">
+            <div class="card-body">
+              <h5 class="card-title " style="font-size: 25px;"><span class="question_title">Câu hỏi {{i+1}} : </span> {{q.Text}}</h5>
+            </div>
+            <ul class="row" style="list-style-type:none">
+              <div class="radio-button row">
+              <li class=" col-5 ml-4 row mt-2 " *ngFor="let a of q.Answers">
+                
+                <input type="radio" (change)="selectAnswer(q.id, a.id)"  name="{{q.id}} " id="dat{{a.id}}"   class="hidebox"  value="{{a.id}} " >
+                <label for="dat{{a.id}}" class=" text-center  lab_box">{{a.Text}}</label>
+              </li>
+              </div>
+            </ul>
+          </fieldset>
+        <button class="btn btn-info mb-5 mt-3  ml-5 pl-5 pr-5 pt-2 pb-2 rounded-pill fw-bold" (click)="submitQuiz()">Nộp bài</button>
+        </div>
+        
+      </div>
+    </div><!-- end of .container-->
+
+  </section>
